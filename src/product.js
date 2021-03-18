@@ -9,12 +9,17 @@ function Product(args) {
                     <h4 className="card-title">
                         <a href="#">{args.property.name}</a>
                     </h4>
-                    <h5>{args.property.price}</h5>
+                    <h5>Rs {args.property.price}</h5>
                     <p className="card-text">{args.property.content}</p>
                 </div>
                 <div className="card-footer">
                     <small className="text-muted">★ ★ ★ ★ ☆</small>
-                    <button className="btn btn-success float-right" onClick={()=>{args.customEvent(args.property.name)}}>Add to cart</button>
+                    <button className="btn btn-success float-right" id={args.property.name} onClick={
+                        (e) => {
+                            args.customEvent(args.property)
+                            e.target.classList.add("disabled");
+                        }
+                    }>Add to cart</button>
                 </div>
             </div>
         </div>
