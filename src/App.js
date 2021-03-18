@@ -2,7 +2,7 @@ import logo from './logo.svg';
 import './App.css';
 import "../node_modules/bootstrap/dist/css/bootstrap.min.css"
 import Product from "./product";
-import { useState, useEffect } from "react";
+import { useState} from "react";
 
 function App() {
   let productDetails = [
@@ -41,8 +41,8 @@ function App() {
   let [accessArray, changeVal] = useState([]);
 
   let customEventMtd = ((args) => {
-    //changeVal.push(args) in normal
-    changeVal(accessArray => [...accessArray, args]); //new syntax
+    accessArray.push(args) 
+    changeVal([...accessArray]); //new syntax
    
   })
 
